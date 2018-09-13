@@ -1,5 +1,5 @@
-module Inst.Bool (module Inst.Bool, module X) where
-import Sig.Bool as X
+module Utils where
+import Sig.Bool
 
 not :: Bool -> Bool
 not = bool true false

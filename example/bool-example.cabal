@@ -1,0 +1,33 @@
+cabal-version: 2.2
+name: bool-example
+homepage: https://github.com/exordium/bool#readme
+version: 0.1.0.0
+category: Exordium
+synopsis: Example of using multiple bool signature instantations
+stability: cursed
+bug-reports: https://github.com/exordium/bool/issues
+author: Dai
+maintainer: daig@sodality.cc
+copyright: 2018 Sodality
+license: MIT
+
+source-repository head
+  location: https://github.com/exordium/bool
+
+common x
+  default-language: Haskell2010
+  default-extensions: NoImplicitPrelude
+
+library
+  import: x
+  exposed-modules: Example
+  signatures: Sig.Bool
+  hs-source-dirs: lib
+  build-depends: bool-sig, base
+
+executable bool-example-exe
+  import: x
+  main-is: Main.hs
+  build-depends: bool-example, bool-base, bool-church
+  mixins: bool-example (Example as Base.Example)   requires (Sig.Bool as Base.Bool)
+        , bool-example (Example as Church.Example) requires (Sig.Bool as Church.Bool)

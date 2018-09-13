@@ -15,7 +15,18 @@ source-repository head
   type: git
   location: https://github.com/exordium/bool
 
-library
+common x
   default-language: Haskell2010
-  default-extensions: RankNTypes,NoImplicitPrelude, BlockArguments
-  exposed-modules: Bool
+  default-extensions: RankNTypes,NoImplicitPrelude, BlockArguments, PatternSynonyms, ViewPatterns
+
+library core
+  import: x
+  hs-source-dirs: core
+  exposed-modules: BoolCore
+
+library
+  import: x
+  exposed-modules: Church.Bool
+  reexported-modules: Church.Bool as Sig.Bool
+  build-depends: core, bool-utils
+  mixins: bool-utils requires (Sig.Bool as BoolCore)
