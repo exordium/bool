@@ -1,0 +1,9 @@
+signature Sig.Bool where
+
+data Bool
+
+true, false :: Bool
+bool :: r -> r -> Bool -> r
+
+not :: Bool -> Bool
+or, and :: Bool -> Bool -> Bool

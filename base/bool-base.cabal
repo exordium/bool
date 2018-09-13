@@ -1,0 +1,22 @@
+cabal-version: 2.2
+name: bool-base
+homepage: https://github.com/exordium/bool-base#readme
+version: 0.1.0.0
+category: Exordium
+synopsis: Backpack basenature for a boolean datatype
+stability: cursed
+bug-reports: https://github.com/exordium/bool-base/issues
+author: Dai
+maintainer: daig@sodality.cc
+copyright: 2018 Sodality
+license: MIT
+
+source-repository head
+  type: git
+  location: https://github.com/exordium/bool-base
+
+library
+  default-language: Haskell2010
+  default-extensions: DataKinds,NoImplicitPrelude,MagicHash
+  exposed-modules: Bool
+  build-depends: ghc-prim
