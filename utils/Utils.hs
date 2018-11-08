@@ -1,5 +1,5 @@
 module Utils where
-import Sig.Bool
+import Bool
 
 pattern True :: Bool
 pattern True <- (bool F T -> T) where True = true

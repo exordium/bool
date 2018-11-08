@@ -1,4 +1,4 @@
-module BoolCore where
+module Bool where
 
 newtype Bool = Bool (forall a. a -> a -> a)
 

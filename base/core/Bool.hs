@@ -1,4 +1,5 @@
-module BoolCore (Bool(..),true,false,bool,isTrue#) where
+{-# language MagicHash #-}
+module Bool (Bool(..),true,false,bool,isTrue#) where
 import GHC.Types
 
 true, false :: Bool

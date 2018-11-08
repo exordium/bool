@@ -1,4 +1,4 @@
-signature Sig.Bool where
+signature Bool where
 
 data Bool
 
