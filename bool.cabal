@@ -64,6 +64,13 @@ library bool-church
   mixins: bool-church-core    (Bool as Bool.Core)
         , bool-utils requires (Bool as Bool.Core)
 
+library bool-fast
+  import: x
+  hs-source-dirs: fast
+  exposed-modules: Bool
+  build-depends: ghc-prim
+
+
 -- Example IO action that's indefinite in its representation of Bools
 library bool-example-indef
   import: x
@@ -77,9 +84,11 @@ executable bool-example
   import: x
   hs-source-dirs: example
   main-is: Main.hs
-  build-depends: bool-example-indef, bool-base, bool-church
+  build-depends: base,bool-example-indef, bool-base, bool-church, bool-fast
   mixins:
           bool-base   (Bool as Bool.Base),
           bool-church (Bool as Bool.Church),
+          bool-fast   (Bool as Bool.Fast),
           bool-example-indef (Example as Example.Base)   requires (Bool as Bool.Base),
-          bool-example-indef (Example as Example.Church) requires (Bool as Bool.Church)
+          bool-example-indef (Example as Example.Church) requires (Bool as Bool.Church),
+          bool-example-indef (Example as Example.Fast) requires (Bool as Bool.Fast)

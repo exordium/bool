@@ -1,1 +1,1 @@
-signature Bool (Bool,bool,true,false,and,or) where
+signature Bool (Bool,bool,true,false,and,xor,eq) where
